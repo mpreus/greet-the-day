@@ -5,6 +5,10 @@
 	padding: 0;
 }
 
+html {
+	font-size: 20px;
+}
+
 body {
 	align-items: center;
 	display: flex;
@@ -13,4 +17,23 @@ body {
 	height: 100vh;
 	justify-content: center;
 	text-align: center;
+}
+
+#time {
+	font-size: 7rem;
+}
+
+h1 {
+	margin-bottom: 3rem; 
+}
+
+h2 {
+	margin-bottom: 0.5rem;
+	opacity: 0.6;
+}
+
+@media(max-width: 700px) {
+	#time {
+		font-size: 5rem;
+	}
 }
