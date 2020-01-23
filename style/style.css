@@ -20,20 +20,27 @@ body {
 }
 
 #time {
-	font-size: 7rem;
+	font-size: 6rem;
 }
 
 h1 {
-	margin-bottom: 3rem; 
+	margin-bottom: 4rem; 
 }
 
 h2 {
 	margin-bottom: 0.5rem;
-	opacity: 0.6;
 }
 
 @media(max-width: 700px) {
 	#time {
-		font-size: 5rem;
+		font-size: 4rem;
 	}
 }
+
+#name, #focus {
+	color: darkred;
+}
+
+
+
+

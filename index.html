@@ -10,13 +10,13 @@
 	<script type="text/javascript" src="script/script.js"></script>
 </head>
 <body>
-	<time id="time">9:30:11 AM</time>
+	<time id="time"></time>
 	<h1>
-		<span id="greeting">Good morning</span>
-		<span id="name" contenteditable>Your name</span>
+		<span id="greeting"></span>
+		<span id="name" onclick="document.getElementById('name').innerText = '' " contenteditable></span>
 	</h1>
 	<h2>What's your focus for today?</h2>
-	<h2 id="focus" contenteditable>Make new site</h2>
+	<h2 id="focus" onclick="document.getElementById('focus').innerText = '' " contenteditable></h2>
 
 </body>
 </html>
