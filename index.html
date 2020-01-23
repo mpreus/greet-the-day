@@ -8,18 +8,42 @@
 	<link href="https://fonts.googleapis.com/css?family=Quicksand:400,700&display=swap&subset=latin-ext" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="style/style.css" />
 	<script type="text/javascript" src="script/script.js"></script>
+	<script type="text/javascript" src="script/skycons.js"></script>
 </head>
 <body>
-	
-	<h1>
-		<span id="greeting"></span>
-		<span id="name" onclick="document.getElementById('name').innerText = '' " contenteditable></span>
-	</h1>
-	
-	<time id="time"></time>
+<!-- PERSONAL SECTION -->
+	<div class="personal">
+	<!-- greeting -->
+		<h1>
+			<span id="greeting"></span>
+			<span id="name" onclick="document.getElementById('name').innerText = '' " contenteditable></span>
+		</h1>
 
-	<h2>What's your focus for today?</h2>
-	<h2 id="focus" onclick="document.getElementById('focus').innerText = '' " contenteditable></h2>
+	<!-- time -->
+		<time id="time"></time>
+
+	<!-- focus of the day -->
+		<h2>What's your focus for today?</h2>
+		<h2 id="focus" onclick="document.getElementById('focus').innerText = '' " contenteditable></h2>
+	</div>
+
+<!-- WEATHER SECTION -->
+	<div class="weather">
+	<!-- weather icon -->
+		<div>
+			<canvas class="icon" width="100" height="100"></canvas>
+		</div>
+
+	<!-- weather description -->
+		<div class="temperature">
+			<h2 class="temperature-description">Cold</h2>
+
+			<div class="degree-section">
+				<h2 class="temperature-degree">34</h2>
+				<!-- <span>F</span> -->
+			</div>
+		</div>
+	</div>
 
 </body>
 </html>

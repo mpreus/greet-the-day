@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", init);
 function init() {
 
+/* GREETING AND SHOWING THE TIME */
 	const time = document.getElementById("time"),
 	greeting = document.getElementById("greeting"),
 	name = document.getElementById("name"),
@@ -51,7 +52,7 @@ function init() {
 			}
 	})(); 
 
-/* getting user's name: */
+/* LOCAL STORAGE - getting user's name: */
 	function getName() {
   		if (localStorage.getItem("name") === null) {
     		name.textContent = "[Enter Name]";
@@ -61,11 +62,7 @@ function init() {
   		}
 	}
 
-	/*function cleanSpace() {
-		name.innerText = "";
-	}*/
-
-/* setting user's name: */
+/* - setting user's name: */
 	function setName(e) {
 		if (e.type === "keypress") {
 			if (e.keyCode === 13) {
@@ -78,7 +75,7 @@ function init() {
 		}
 	}
 
-/* getting user's focus for the day: */
+/* - getting user's focus for the day: */
 	function getFocus() {
 		if (localStorage.getItem("focus") === null) {
 			focus.textContent = "[Enter focus]";
@@ -88,7 +85,7 @@ function init() {
 		}
 	}
 
-/* setting user's focus for the day: */
+/* - setting user's focus for the day: */
 	function setFocus(e) {
 		if (e.type === 'keypress') {
     		if (e.keyCode == 13) {
@@ -111,12 +108,66 @@ function init() {
 	getName();
 	getFocus();
 
+/* WEATHER CONDITIONS */
+	function getWeatherCondition() {
+
+		let long;
+		let lat;
+
+		let temperatureDescription = document.querySelector(".temperature-description");
+		let temperatureDegree = document.querySelector(".temperature-degree");
+		let temperatureSection = document.querySelector(".temperature");
+		const temperatureSpan = document.querySelector(".degree-section span");
+
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(position => {
+				long = position.coords.longitude;
+				lat = position.coords.latitude;
+			/* to avoid CORS policy consequences, we use 'cors-anywhere' */
+				const proxy = "https://cors-anywhere.herokuapp.com/";
+				const api = `${proxy}https://api.darksky.net/forecast/e25dfc79138af46ff1990edafb63c5fe/${lat},${long}`;
+				fetch(api)
+					.then(response => {
+						return response.json();
+					})
+					.then(data => {
+					/* destructuring allow us to use selected elements */
+						const {temperature, summary, icon} = data.currently;
+					/* DOM elements build with API */
+					/* temperature is in 'F', so we re-calculate it to get celcius */
+						temperatureDegree.textContent = `${((temperature - 32) * (5 / 9)).toFixed(1)} ºC`;
+
+						temperatureDescription.textContent = summary;
+
+					/* setting icon for current weather: */
+						setIcons(icon, document.querySelector(".icon"));
+						/* the second argument is icon ID */
+
+					/* setting alternative temperatures F to C and back: */
+						temperatureSection.addEventListener("click", () => {
+							if (temperatureDegree.textContent.includes("ºC")) {
+								temperatureDegree.textContent = `${temperature.toFixed(1)} F`;
+							}
+							else {
+								temperatureDegree.textContent = `${((temperature - 32) * (5 / 9)).toFixed(1)} ºC`;
+							}
+						})
+					})
+			});
+		}
+
+		function setIcons(icon, iconID) {
+			/* new instance of the Skycons: */
+			const skycons = new Skycons({color: "#000"});
+			/* to adjust notation to the 'skycons' requirements, we replace '-' with '_' and make the name uppercased: */
+			const currentIcon = icon.replace(/-/g, "_").toUpperCase();
+
+			skycons.play();
+
+			return skycons.set(iconID, Skycons[currentIcon]);
+		}
+	}
+
+	getWeatherCondition();
 
 }
-
-
-
-
-
-
-

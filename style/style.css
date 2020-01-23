@@ -11,34 +11,65 @@ html {
 
 body {
 	align-items: center;
-	display: flex;
-	flex-direction: column;
 	font-family: 'Quicksand', sans-serif;
 	height: 100vh;
+}
+
+.personal {
+	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	text-align: center;
 }
 
 #time {
-	font-size: 6rem;
+	font-size: 4rem;
 	margin: 2rem auto; 
 }
 
 h1 {
 	font-size: 3rem;
+	margin: 2rem 0 1rem 0;
 }
 
 h2 {
 	font-size: 2rem;
-	margin-bottom: 0.5rem;
+	margin: 1rem;
 }
 
 @media(max-width: 700px) {
 	#time {
-		font-size: 4rem;
+		font-size: 3rem;
+	}
+	h1 {
+		font-size: 2rem;
+		margin: 1rem 0 .6rem 0;
+	}
+
+	h2 {
+		font-size: 1.4rem;
+		margin: 1rem;
 	}
 }
 
+.weather {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	margin-top: 2rem;
+}
 
+@media(max-width: 700px) {
+	.weather {
+		margin: 2rem;
+	}
+}
 
+.temperature {
+	margin-left: 2rem;
+}
 
+.degree-section span {
+	font-size: 2rem;
+	margin-left: 1vw;
+}
