@@ -21,13 +21,15 @@ body {
 
 #time {
 	font-size: 6rem;
+	margin: 2rem auto; 
 }
 
 h1 {
-	margin-bottom: 4rem; 
+	font-size: 3rem;
 }
 
 h2 {
+	font-size: 2rem;
 	margin-bottom: 0.5rem;
 }
 
