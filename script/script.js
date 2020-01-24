@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", init);
+
 function init() {
 
 /* GREETING AND SHOWING THE TIME */

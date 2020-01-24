@@ -4,15 +4,17 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="ie-edge" />
+	<meta name="description" content="landing page, personal site, greeting, current time, current weather, local storage" />
+    <meta name="keywords" content="HTML, CSS, RWD, JavaScript, API" />
 	<title>Start the day</title>
-	<link href="https://fonts.googleapis.com/css?family=Quicksand:400,700&display=swap&subset=latin-ext" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="style/style.css" />
+	<link href="https://fonts.googleapis.com/css?family=Quicksand:400,700&display=swap&subset=latin-ext" rel="stylesheet" />
+	<link rel="stylesheet" href="style/style.css" />
 	<script type="text/javascript" src="script/script.js"></script>
 	<script type="text/javascript" src="script/skycons.js"></script>
 </head>
 <body>
 <!-- PERSONAL SECTION -->
-	<div class="personal">
+	<section class="personal">
 	<!-- greeting -->
 		<h1>
 			<span id="greeting"></span>
@@ -25,10 +27,10 @@
 	<!-- focus of the day -->
 		<h2>What's your focus for today?</h2>
 		<h2 id="focus" onclick="document.getElementById('focus').innerText = '' " contenteditable></h2>
-	</div>
+	</section>
 
 <!-- WEATHER SECTION -->
-	<div class="weather">
+	<section class="weather">
 	<!-- weather icon -->
 		<div>
 			<canvas class="icon" width="100" height="100"></canvas>
@@ -43,7 +45,7 @@
 				<!-- <span>F</span> -->
 			</div>
 		</div>
-	</div>
+	</section>
 
 </body>
 </html>
